@@ -64,6 +64,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require('../public/libs-mainfest.json') // 指向生成的manifest.json
+    }),
     new webpack.ProvidePlugin({
       $: "jquery"
     }),
